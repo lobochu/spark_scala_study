@@ -36,7 +36,7 @@ object Recommend {
       .setAppName("Recommend").setMaster("local[4]"))
     print("Start processing recommendation.")
 
-    val DataDir = "data"
+    val DataDir = "src/test/resources"
     val rawUserData = sc.textFile(new File(DataDir, "u.data").toString)
     val rawRatings = rawUserData.map(_.split("\t").take(3))
     val ratingsRDD = rawRatings.map { case Array(user, movie, rating) =>
